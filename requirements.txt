@@ -1,0 +1,7 @@
+flask
+waitress
+opencv-python
+pillow
+torchvision
+numpy
+ultralytics
