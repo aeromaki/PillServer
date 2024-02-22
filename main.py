@@ -39,5 +39,4 @@ def f() -> Union[str, Tuple[str, int]]:
     return jsonify({"cc": cc})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=3000)
-    # serve(app, host="0.0.0.0", port=3000)
+    serve(app, host="0.0.0.0", port=3000)

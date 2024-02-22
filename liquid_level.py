@@ -25,7 +25,6 @@ def _rowsum(img: Image) -> np.ndarray:
     return rs
 
 def _find_level(res: np.ndarray, w: int) -> int:
-    print(w)
     level = np.where(res <= w // 7 // 7)[0][0].item()
     return level
 
