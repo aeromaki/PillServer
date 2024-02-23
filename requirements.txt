@@ -5,3 +5,4 @@ pillow
 torchvision
 numpy
 ultralytics
+tensorflow
