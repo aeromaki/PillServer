@@ -28,13 +28,15 @@ def f() -> Union[str, Tuple[str, int]]:
     image_path = generate_image_path()
     image.save(image_path)
 
-    cropped_image = bottle_detector(image_path)
-    cropped_image.save("_cr.jpg")
+    try:
+        cropped_image = bottle_detector(image_path)
+        cropped_image.save("_cr.jpg")
+        h = cropped_image.size[1]
+        cc = round((h - get_water_level(cropped_image)) / h * 20 * 1.26)
+    except:
+        cc = 0
 
     os.remove(image_path)
-
-    h = cropped_image.size[1]
-    cc = round((h - get_water_level(cropped_image)) / h * 20 * 1.26)
 
     return jsonify({"cc": cc})
 
