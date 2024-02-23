@@ -34,11 +34,12 @@ def f() -> Union[str, Tuple[str, int]]:
         h = cropped_image.size[1]
         cc = round((h - get_water_level(cropped_image)) / h * 20 * 1.26)
     except:
-        cc = 0
+        cc = None
 
     os.remove(image_path)
 
     return jsonify({"cc": cc})
 
 if __name__ == "__main__":
-    serve(app, host="0.0.0.0", port=3000)
+    app.run(host="0.0.0.0", port=3000)
+    # serve(app, host="0.0.0.0", port=3000)
